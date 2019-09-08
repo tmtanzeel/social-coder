@@ -65,7 +65,7 @@ export class ContributeComponent implements OnInit {
     this._auth.pushNewPost(this.makeNewPost)
     .subscribe (
       res => {
-        console.log(res);
+        //console.log(res);
         this._router.navigate(['/articles']);
       },
       err => console.log(err)

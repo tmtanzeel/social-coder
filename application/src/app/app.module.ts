@@ -18,6 +18,7 @@ import { ArticlesComponent } from './articles/articles.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { ContributeComponent } from './contribute/contribute.component'
 import { QuillModule} from 'ngx-quill';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { QuillModule} from 'ngx-quill';
     AppRoutingModule,
     QuillModule,
     QuillModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ScrollToModule.forRoot()
   ],
   providers: [AuthService, ArticleService,
   {

@@ -1,0 +1,11 @@
+.content-head {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 35px;
+  font-family: 'Muli', sans-serif;
+  color: salmon;
+}
+
+.data-container {
+  margin-top: 100px;
+}
