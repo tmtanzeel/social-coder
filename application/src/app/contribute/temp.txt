@@ -1,0 +1,22 @@
+<h1 class="heading-text">Yay! Would love to learn from you.</h1>
+<div class="container">
+  <div class="row pt-5">
+    <div class="col-md-12 col-lg-12 col-sm-12 bg-light">
+      <form [formGroup]="editorForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="exampleInputEmail1">
+            <h3>Title</h3>
+          </label>
+          <input type="text" class="form-control" id="inputTitle" aria-describedby="emailHelp" placeholder="Enter a short and self explanatory title">
+          <small id="emailHelp" class="form-text text-muted">For eg. Installing Nodejs on Ubuntu 18.04</small>
+          <br>
+          <label for="editor">
+            <h3>Editor</h3>
+          </label>
+          <quill-editor [styles]="editorStyle" [modules]="config" formControlName="editor"></quill-editor>
+         </div>
+        <button class="btn btn-primary mt-3 mb-3">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
