@@ -5,11 +5,13 @@ import { HomeComponent } from './home/home.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { ContributeComponent } from './contribute/contribute.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth.guard';
+
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'articles', component: ArticlesComponent},
-  {path: 'contribute', component: ContributeComponent},
+  {path: 'contribute', component: ContributeComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent}
 ];

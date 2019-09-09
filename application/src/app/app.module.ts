@@ -19,6 +19,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { ContributeComponent } from './contribute/contribute.component'
 import { QuillModule} from 'ngx-quill';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
     ReactiveFormsModule,
     ScrollToModule.forRoot()
   ],
-  providers: [AuthService, ArticleService,
+  providers: [AuthService, AuthGuard, ArticleService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
