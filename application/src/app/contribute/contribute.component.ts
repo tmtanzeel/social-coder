@@ -18,7 +18,8 @@ import { AuthService } from '../auth.service';
 export class ContributeComponent implements OnInit {
   makeNewPost={
     title: "",
-    content: ""
+    content: "",
+    date: ""
   };
 
   // inject: private _myApiService: MyApiService
@@ -55,10 +56,14 @@ export class ContributeComponent implements OnInit {
   onSubmit() {
     var titleFromField = (<HTMLInputElement>document.getElementById("inputTitle")).value;
     var content = this.editorForm.get('editor').value;
+    var date = new Date().toUTCString();
+
+    /*
     console.log(titleFromField);
-
     console.log(content);
-
+    console.log(date);
+    */
+    
     this.makeNewPost.title=titleFromField;
     this.makeNewPost.content=content;
 
