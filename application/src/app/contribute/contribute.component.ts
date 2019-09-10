@@ -63,9 +63,10 @@ export class ContributeComponent implements OnInit {
     console.log(content);
     console.log(date);
     */
-    
+
     this.makeNewPost.title=titleFromField;
     this.makeNewPost.content=content;
+    this.makeNewPost.date=date;
 
     this._auth.pushNewPost(this.makeNewPost)
     .subscribe (
