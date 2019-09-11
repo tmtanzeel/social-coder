@@ -20,6 +20,7 @@ import { ContributeComponent } from './contribute/contribute.component'
 import { QuillModule} from 'ngx-quill';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { AuthGuard } from './auth.guard';
+import { UnknownComponentComponent } from './unknown-component/unknown-component.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AuthGuard } from './auth.guard';
     TorsoComponent,
     FooterComponent,
     ArticlesComponent,
-    ContributeComponent
+    ContributeComponent,
+    UnknownComponentComponent
   ],
   imports: [
     BrowserModule,
