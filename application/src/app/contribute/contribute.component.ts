@@ -10,6 +10,7 @@ import { Posts } from '../classes/posts';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../auth.service';
 
+
 @Component({
   selector: 'app-contribute',
   templateUrl: './contribute.component.html',
@@ -19,7 +20,8 @@ export class ContributeComponent implements OnInit {
   makeNewPost={
     title: "",
     content: "",
-    date: ""
+    date: "",
+    contributor: ""
   };
 
   // inject: private _myApiService: MyApiService
@@ -56,6 +58,9 @@ export class ContributeComponent implements OnInit {
   onSubmit() {
     var titleFromField = (<HTMLInputElement>document.getElementById("inputTitle")).value;
     var content = this.editorForm.get('editor').value;
+    var contributor = localStorage.getItem('firstname') +" " +localStorage.getItem('lastname');
+    console.log(contributor);
+    
     var date = new Date().toUTCString();
 
     /*
@@ -67,6 +72,7 @@ export class ContributeComponent implements OnInit {
     this.makeNewPost.title=titleFromField;
     this.makeNewPost.content=content;
     this.makeNewPost.date=date;
+    this.makeNewPost.contributor="Contributor: "+contributor; 
 
     this._auth.pushNewPost(this.makeNewPost)
     .subscribe (
@@ -78,25 +84,4 @@ export class ContributeComponent implements OnInit {
 
     );
   }
-
-/*
-  onSubmit() {
-    var content = this.editorForm.get('editor').value;
-    console.log(content);
-    var opost = new Posts();
-    //var i=17;
-    //opost.id=i++;
-    opost.body=content;
-
-    var titleFromField = (<HTMLInputElement>document.getElementById("inputTitle")).value;
-    opost.title=titleFromField;
-    //console.log(title);
-
-    this._myApiService.post(opost)
-    .subscribe (
-      data=> {
-        //this.opost = data;
-      }
-    );
-  }*/
 }

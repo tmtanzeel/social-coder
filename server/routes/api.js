@@ -47,9 +47,12 @@ router.post('/login', (req, res) => {
         res.status(401).send('Invalid password')
       }
       else {
+        console.log(userData.email);
+        console.log(userData.password);
+        console.log(user.firstName);
         let payLoad = { subject: user._id };
         let token = jwt.sign(payLoad, 'secretKey');
-        res.status(200).send({token});
+        res.status(200).send({token, userData, user});
       }
     }
   })

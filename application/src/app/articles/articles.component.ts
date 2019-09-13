@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../article.service';
 
+
 @Component({
   selector: 'app-articles',
   templateUrl: './articles.component.html',
@@ -24,6 +25,7 @@ export class ArticlesComponent implements OnInit {
     .subscribe (
       data => {
         document.querySelector('#data-container').innerHTML=data[id].content;
+        document.querySelector('#contributor-container').innerHTML=data[id].contributor;
       }
     );
   }
