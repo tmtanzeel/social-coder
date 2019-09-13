@@ -25,7 +25,7 @@ export class ArticlesComponent implements OnInit {
     .subscribe (
       data => {
         document.querySelector('#data-container').innerHTML=data[id].content;
-        document.querySelector('#contributor-container').innerHTML=data[id].contributor;
+        document.querySelector('#contributor-container').innerHTML="Contributor: "+data[id].contributor;
       }
     );
   }

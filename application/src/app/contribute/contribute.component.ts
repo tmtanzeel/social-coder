@@ -72,7 +72,7 @@ export class ContributeComponent implements OnInit {
     this.makeNewPost.title=titleFromField;
     this.makeNewPost.content=content;
     this.makeNewPost.date=date;
-    this.makeNewPost.contributor="Contributor: "+contributor; 
+    this.makeNewPost.contributor=contributor; 
 
     this._auth.pushNewPost(this.makeNewPost)
     .subscribe (

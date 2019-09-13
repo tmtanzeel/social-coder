@@ -8,11 +8,11 @@
 
 .data-container {
   margin-top: 100px;
-  margin-bottom: 100px;
+  margin-bottom: 5px;
 }
 
 .contributor-container {
-  margin-top: 100px;
+  margin-top: 5px;
   margin-bottom: 100px;
   text-align: center;
   font-size: 25px;
