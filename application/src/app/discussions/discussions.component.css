@@ -1,0 +1,19 @@
+.question-head {
+    font-size: 18px;
+    text-align: left;
+}
+
+.tags {
+    color: white;
+}
+
+.tag-tokens {
+    background: salmon;
+    border-radius: 5px 5px 5px 5px;
+    margin-right: 5px;
+    padding: 3px 5px 3px 5px;
+}
+
+.read-button {
+    margin-top: 5px;
+}

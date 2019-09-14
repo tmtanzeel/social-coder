@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const User = require('../models/user');
 const Post = require('../models/article');
 const Article = require('../models/article');
+const Discussion = require('../models/discussion');
 const db = 'mongodb://tanzeel_123:mydbpass@cluster0-shard-00-00-znt38.mongodb.net:27017,cluster0-shard-00-01-znt38.mongodb.net:27017,cluster0-shard-00-02-znt38.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority'
 const jwt = require('jsonwebtoken');
 
@@ -98,6 +99,18 @@ router.get('/articles', function(req, res){
             res.json(article);
         }
     });
+});
+
+router.get('/discussions', function(req, res){
+  console.log('Get request for all discussions');
+  Discussion.find({})
+  .exec(function(err, discussion){
+      if (err){
+          console.log("Error retrieving discussions");
+      }else {
+          res.json(discussion);
+      }
+  });
 });
 
 module.exports = router;

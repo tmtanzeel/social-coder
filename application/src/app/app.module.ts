@@ -21,6 +21,7 @@ import { QuillModule} from 'ngx-quill';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { AuthGuard } from './auth.guard';
 import { UnknownComponentComponent } from './unknown-component/unknown-component.component';
+import { DiscussionsComponent } from './discussions/discussions.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { UnknownComponentComponent } from './unknown-component/unknown-component
     FooterComponent,
     ArticlesComponent,
     ContributeComponent,
-    UnknownComponentComponent
+    UnknownComponentComponent,
+    DiscussionsComponent
   ],
   imports: [
     BrowserModule,

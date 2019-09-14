@@ -1,0 +1,25 @@
+<div class="row mt-5">
+        <div class="col-md-12 mb-3" *ngFor="let discussion of discussions; let i = index;">
+          <div class="card text-center">
+            <div class="card-body question-head">
+              <span class="card-title ">{{discussion.qtitle}}</span><br>
+                <div class="tags">
+                    <span class="tag-tokens" *ngFor="let tag of discussion.tags">{{tag}}</span>
+                </div>
+              <a (click)="onPress(i)" class="btn btn-primary read-button" [ngx-scroll-to]="'#data-container'">Read</a>
+            </div>
+            <div class="card-footer text-muted">
+              Asked by Tanzeel Mirza on {{discussion.date}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <hr>
+      <div class="data-container" id="data-container">
+        <h3 class="content-head">Content will be displayed here</h3>
+      </div>
+      <div class="contributor-container" id="contributor-container">
+        <h4 class="contributor-head"></h4>
+      </div>
+      
