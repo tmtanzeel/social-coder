@@ -2,11 +2,14 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 const discussionSchema = new Schema({
-  question: String,
+  qtitle: String,
+  qcontent: String,
   date: String,
   askedby: String,
   answers: [String],
-  tags: [String]
+  tags: {
+    
+  }
 })
 
 module.exports = mongoose.model('discussion', discussionSchema, 'discussions');

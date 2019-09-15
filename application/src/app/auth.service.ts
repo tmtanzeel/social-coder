@@ -11,7 +11,7 @@ export class AuthService {
   private _registerUrl = "http://localhost:3000/api/register";
   private _loginUrl = "http://localhost:3000/api/login";
   private _contributeUrl = "http://localhost:3000/api/contribute";
-
+  private _askUrl = "http://localhost:3000/api/ask";
 
   registerUser(user) {
     return this._http.post<any>(this._registerUrl, user);
@@ -27,6 +27,11 @@ export class AuthService {
 
   pushNewPost(newPost) {
     return this._http.post<any>(this._contributeUrl, newPost);
+  }
+
+  pushNewQuest(newQuest) {
+    //console.log("pushew Quest called");    
+    return this._http.post<any>(this._askUrl, newQuest);
   }
 
   getToken() {

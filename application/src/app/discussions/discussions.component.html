@@ -4,12 +4,12 @@
             <div class="card-body question-head">
               <span class="card-title ">{{discussion.qtitle}}</span><br>
                 <div class="tags">
-                    <span class="tag-tokens" *ngFor="let tag of discussion.tags">{{tag}}</span>
+                    <span class="tag-tokens" *ngFor="let tag of discussion.tags">#{{tag.displayValue}}</span>
                 </div>
               <a (click)="onPress(i)" class="btn btn-primary read-button" [ngx-scroll-to]="'#data-container'">Read</a>
             </div>
             <div class="card-footer text-muted">
-              Asked by Tanzeel Mirza on {{discussion.date}}
+              Asked by {{discussion.askedby}}, {{discussion.date}}
             </div>
           </div>
         </div>

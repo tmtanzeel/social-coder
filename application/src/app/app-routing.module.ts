@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
 import { UnknownComponentComponent } from './unknown-component/unknown-component.component';
 import { DiscussionsComponent } from './discussions/discussions.component';
+import { AskComponent } from './ask/ask.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'discussions', component: DiscussionsComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'ask', component: AskComponent},
   {path: '**', component: UnknownComponentComponent}
 ];
 

@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row pt-5">
+        <div class="col-md-12 col-lg-12 col-sm-12 bg-light">
+            <form [formGroup]="editorForm" (keydown.enter)="$event.preventDefault()">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">
+                        <h3>Title</h3>
+                    </label>
+                    <input type="text" class="form-control" id="inputTitle" aria-describedby="emailHelp"
+                        placeholder="Enter a question that explains your problem exactly">
+                    <small id="emailHelp" class="form-text text-muted">For eg. I am getting ERROR:404 while connecting
+                        to MongoDB using MEAN stack</small>
+                    <br>
+                    <label for="editor">
+                        <h3>Editor</h3>
+                        <h6 class="form-text text-muted">Show what efforts you've made, your approach, include some
+                            code snippet or any other research. Please!</h6>
+                    </label>
+                    <quill-editor [styles]="editorStyle" [modules]="config" formControlName="editor"></quill-editor>
+                    
+                </div>
+                <h6 class="form-text text-muted">Add some tags also. It will be less painful for our searching algorithms.</h6>
+                <div class="form-group">
+                    <ngx-tags-input placeclass="form-control input-lg" [ngModelOptions]="{standalone: true}" [(ngModel)]="makeNewQuest.tags" id="my-tags" name="tags"></ngx-tags-input>
+                </div>
+                <small class="form-text text-muted">Tags are separated by ENTER key. Simply type in and press ENTER.</small>
+                <button class="btn btn-primary mt-3 mb-3" (click)="onSubmit()">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
