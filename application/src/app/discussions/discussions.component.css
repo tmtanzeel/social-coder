@@ -12,8 +12,13 @@
     border-radius: 5px 5px 5px 5px;
     margin-right: 5px;
     padding: 3px 5px 3px 5px;
+    font-size: 15px;
 }
 
 .read-button {
     margin-top: 5px;
+}
+
+.data-container {
+    margin-bottom: 80px;
 }
