@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +25,9 @@ import { UnknownComponentComponent } from './unknown-component/unknown-component
 import { DiscussionsComponent } from './discussions/discussions.component';
 import { AskComponent } from './ask/ask.component';
 import { NgxTagsInputModule } from 'ngx-tags-input';
+import {ToastModule} from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+
 
 
 @NgModule({
@@ -44,6 +48,7 @@ import { NgxTagsInputModule } from 'ngx-tags-input';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
@@ -51,9 +56,10 @@ import { NgxTagsInputModule } from 'ngx-tags-input';
     QuillModule.forRoot(),
     ReactiveFormsModule,
     ScrollToModule.forRoot(),
-    NgxTagsInputModule
+    NgxTagsInputModule,
+    ToastModule
   ],
-  providers: [AuthService, AuthGuard, ArticleService,
+  providers: [MessageService, AuthService, AuthGuard, ArticleService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

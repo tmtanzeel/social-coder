@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
-
 //import { MyApiService } from '../services/myapi.service';
 import { Posts } from '../classes/posts';
 
 //import { Comments } from '../classes/comments';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../auth.service';
+import { MessageService } from 'primeng/components/common/api';
 
 
 @Component({
@@ -25,7 +25,7 @@ export class ContributeComponent implements OnInit {
   };
 
   // inject: private _myApiService: MyApiService
-  constructor(private _auth: AuthService, private _router: Router) { }
+  constructor(private messageService: MessageService, private _auth: AuthService, private _router: Router) { }
 
   editorForm: FormGroup;
   //lstarts: Posts[];
@@ -34,6 +34,10 @@ export class ContributeComponent implements OnInit {
   editorStyle = {
     height: '300px',
     backgroundColor: '#ffffff'
+  }
+
+  addSingle() {
+    this.messageService.add({severity:'success', summary:'Service Message', detail:'Via MessageService'});
   }
 
   config = {
@@ -78,7 +82,7 @@ export class ContributeComponent implements OnInit {
     .subscribe (
       res => {
         //console.log(res);
-        this._router.navigate(['/articles']);
+        //this._router.navigate(['/articles']);
       },
       err => console.log(err)
 
