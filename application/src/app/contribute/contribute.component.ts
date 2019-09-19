@@ -1,14 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { FormGroup, FormControl, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-
-//import { MyApiService } from '../services/myapi.service';
-import { Posts } from '../classes/posts';
-
-//import { Comments } from '../classes/comments';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../auth.service';
 import { MessageService } from 'primeng/components/common/api';
+import { delay } from 'q';
 
 
 @Component({
@@ -37,7 +32,7 @@ export class ContributeComponent implements OnInit {
   }
 
   addSingle() {
-    this.messageService.add({severity:'success', summary:'Service Message', detail:'Via MessageService'});
+    this.messageService.add({severity:'success', summary:'Success Message', detail:'Article submitted'});
   }
 
   config = {
@@ -59,19 +54,15 @@ export class ContributeComponent implements OnInit {
     });
   }
 
+  @ViewChild('searchInput', {static: false}) searchInputRef: ElementRef;
+
   onSubmit() {
+    
     var titleFromField = (<HTMLInputElement>document.getElementById("inputTitle")).value;
     var content = this.editorForm.get('editor').value;
-    var contributor = localStorage.getItem('firstname') +" " +localStorage.getItem('lastname');
-    console.log(contributor);
+    var contributor = localStorage.getItem('firstname') +" "+localStorage.getItem('lastname');
     
     var date = new Date().toUTCString();
-
-    /*
-    console.log(titleFromField);
-    console.log(content);
-    console.log(date);
-    */
 
     this.makeNewPost.title=titleFromField;
     this.makeNewPost.content=content;
@@ -81,11 +72,11 @@ export class ContributeComponent implements OnInit {
     this._auth.pushNewPost(this.makeNewPost)
     .subscribe (
       res => {
-        //console.log(res);
-        //this._router.navigate(['/articles']);
+        (<HTMLInputElement>document.getElementById("inputTitle")).value="";
+        this.editorForm.reset();
+        this.addSingle();
       },
       err => console.log(err)
-
     );
   }
 }

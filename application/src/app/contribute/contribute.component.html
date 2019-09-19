@@ -2,12 +2,12 @@
 <div class="container">
   <div class="row pt-5">
     <div class="col-md-12 col-lg-12 col-sm-12 bg-light">
-      <form [formGroup]="editorForm" (ngSubmit)="addSingle()">
+      <form [formGroup]="editorForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="exampleInputEmail1">
             <h3>Title</h3>
           </label>
-          <input type="text" class="form-control" id="inputTitle" aria-describedby="emailHelp" placeholder="Enter a short, clear and self explanatory title">
+          <input type="text" class="form-control" #searchInput  id="inputTitle" aria-describedby="emailHelp" placeholder="Enter a short, clear and self explanatory title">
           <small id="emailHelp" class="form-text text-muted">For eg. Installing Nodejs on Ubuntu 18.04 using terminal</small>
           <br>
           <label for="editor">
@@ -17,7 +17,7 @@
          </div>
         <button class="btn btn-primary mt-3 mb-3">Submit</button>
       </form>
-      <p-toast position="top-left"></p-toast>
+      <p-toast position="top-right"></p-toast>
     </div>
   </div>
 </div>
