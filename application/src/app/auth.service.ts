@@ -12,6 +12,7 @@ export class AuthService {
   private _loginUrl = "http://localhost:3000/api/login";
   private _contributeUrl = "http://localhost:3000/api/contribute";
   private _askUrl = "http://localhost:3000/api/ask";
+  private _deleteArtURL = "http://localhost:3000/api/delete-article";
 
   registerUser(user) {
     return this._http.post<any>(this._registerUrl, user);
@@ -36,6 +37,11 @@ export class AuthService {
 
   getToken() {
     return localStorage.getItem('token');
+  }
+
+  deleteAnArticle() {
+    console.log("deleteAnArticle called");
+    return this._http.delete<any>(this._deleteArtURL);
   }
 
   logoutUser() {

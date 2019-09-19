@@ -7,13 +7,13 @@
           <label for="exampleInputEmail1">
             <h3>Title</h3>
           </label>
-          <input type="text" class="form-control" #searchInput  id="inputTitle" aria-describedby="emailHelp" placeholder="Enter a short, clear and self explanatory title">
+          <input type="text" class="form-control" #searchInput  id="inputTitle" aria-describedby="emailHelp" placeholder="Enter a short, clear and self explanatory title"> required
           <small id="emailHelp" class="form-text text-muted">For eg. Installing Nodejs on Ubuntu 18.04 using terminal</small>
           <br>
           <label for="editor">
             <h3>Editor</h3>
           </label>
-          <quill-editor [styles]="editorStyle" [modules]="config" formControlName="editor"></quill-editor>
+          <quill-editor [styles]="editorStyle" [modules]="config" formControlName="editor" required></quill-editor>
          </div>
         <button class="btn btn-primary mt-3 mb-3">Submit</button>
       </form>
