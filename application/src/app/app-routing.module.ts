@@ -9,6 +9,7 @@ import { AuthGuard } from './auth.guard';
 import { UnknownComponentComponent } from './unknown-component/unknown-component.component';
 import { DiscussionsComponent } from './discussions/discussions.component';
 import { AskComponent } from './ask/ask.component';
+import { MyArticlesComponent } from './my-articles/my-articles.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'ask', component: AskComponent},
+  {path: 'myarticles', component: MyArticlesComponent},
   {path: '**', component: UnknownComponentComponent}
 ];
 

@@ -32,8 +32,13 @@
         <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" *ngIf="!_authService.loggedIn()" routerLink="/register">Register</button>
       </li>
       <li class="nav-item signup">
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" *ngIf="_authService.loggedIn()" (click)="_authService.getMyArticles()" routerLink="/myarticles">
+          <i class="fa fa-pencil"></i>&nbsp;Articles
+        </button>
+      </li>&nbsp;&nbsp;
+      <li class="nav-item signup">
         <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()" routerLink="/register">
-          <i class="fa fa-trash"></i>&nbsp;Articles
+          <i class="fa fa-question-circle"></i>&nbsp;Questions
         </button>
       </li>
       &nbsp;&nbsp;

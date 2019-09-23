@@ -60,6 +60,46 @@ router.post('/login', (req, res) => {
   })
 })
 
+router.get('/myarticles', (req, res) => {
+  var person="Tanzeel Mirza";
+  console.log('Get request for tanzeel articles');
+  Article.find({contributor: person}, (error, article) => {
+    if(error) {
+      console.log(error)
+    }
+    else {
+      if(!article) {
+        res.status(401).send('Invalid email')
+      }
+      else if(2>4) {
+        console.log("test passed");
+      }
+      else {
+        res.json(article);
+      }
+    }
+  })
+})
+
+router.delete('/delete/:id', (req, res) => {
+  let articleId=req.params.id;
+  console.log("to be dleted "+articleId);  
+  Article.deleteOne({articleid: articleId}, (error, article) => {
+    if(error) {
+      console.log(error)
+    }
+    else {
+      if(!article) {
+        res.status(401).send('something went wrong')
+      }
+      else {
+        console.log('successfully deleted');
+      }
+    }
+  })
+})
+
+
 router.post('/register', (req, res) => {
   let userData = req.body;
   let user = new User(userData);

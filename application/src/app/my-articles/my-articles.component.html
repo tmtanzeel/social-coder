@@ -1,0 +1,40 @@
+<h1 class="heading-text">Here! We found your articles.</h1>
+<div class="row mt-5">
+    <div class="col-md-4 mb-3" *ngFor="let article of articles; let i = index;">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">{{article.title}}</h5>
+          <a (click)="onPress(article.articleid)" class="btn btn-danger">Delete</a>
+          &nbsp;<a (click)="onPress2(article.articleid)" class="btn btn-success">Improve</a>
+        </div>
+        <div class="card-footer text-muted">
+            {{article.date}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <hr>
+  <!-- <div class="container">
+    <div class="row pt-5">
+      <div class="col-md-12 col-lg-12 col-sm-12 bg-light">
+        <form [formGroup]="editorForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="exampleInputEmail1">
+              <h3>Title (click to edit)</h3>
+              <div id="title-container" contentEditable="true">
+              </div>
+            </label>
+            <small id="emailHelp" class="form-text text-muted">For eg. Installing Nodejs on Ubuntu 18.04 using terminal</small>
+            <br>
+            <label for="editor">
+              <h3>Editor</h3>
+            </label>
+            <quill-editor id="content-container" [styles]="editorStyle" [modules]="config" formControlName="editor" required><p>gfhg</p></quill-editor>
+           </div>
+          <button class="btn btn-primary mt-3 mb-3">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+   -->

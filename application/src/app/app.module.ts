@@ -27,6 +27,7 @@ import { AskComponent } from './ask/ask.component';
 import { NgxTagsInputModule } from 'ngx-tags-input';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { MyArticlesComponent } from './my-articles/my-articles.component';
 
 
 
@@ -44,7 +45,8 @@ import { MessageService } from 'primeng/api';
     ContributeComponent,
     UnknownComponentComponent,
     DiscussionsComponent,
-    AskComponent
+    AskComponent,
+    MyArticlesComponent
   ],
   imports: [
     BrowserModule,
