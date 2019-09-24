@@ -4,8 +4,8 @@
       <div class="card text-center">
         <div class="card-body">
           <h5 class="card-title">{{article.title}}</h5>
-          <a (click)="onPress(article.articleid)" class="btn btn-danger">Delete</a>
-          &nbsp;<a (click)="onPress2(article.articleid)" class="btn btn-success">Improve</a>
+          <a (click)="onPress(article.articleid)" class="btn btn-danger"><i class="fa fa-trash"></i>&nbsp;Delete</a>
+          &nbsp;<a (click)="onPress2(article.articleid)" class="btn btn-success"><i class="fa fa-pencil"></i>&nbsp;Improve</a>
         </div>
         <div class="card-footer text-muted">
             {{article.date}}
@@ -15,15 +15,16 @@
   </div>
   <br>
   <hr>
-  <!-- <div class="container">
+  <div class="container mb-5">
     <div class="row pt-5">
       <div class="col-md-12 col-lg-12 col-sm-12 bg-light">
         <form [formGroup]="editorForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label for="exampleInputEmail1">
               <h3>Title (click to edit)</h3>
-              <div id="title-container" contentEditable="true">
-              </div>
+              <!-- <div id="title-container" contentEditable="true">
+              </div> -->
+              <input type="text" id="title-container">
             </label>
             <small id="emailHelp" class="form-text text-muted">For eg. Installing Nodejs on Ubuntu 18.04 using terminal</small>
             <br>
@@ -37,4 +38,4 @@
       </div>
     </div>
   </div>
-   -->
+  

@@ -44,6 +44,11 @@ export class AuthService {
     return this._http.delete<any>(this._deleteArtURL);
   }
 
+  private _onlyMyArticlesUrl = "http://localhost:3000/api/myarticles";
+  getMyArticles() {
+    return this._http.get<any>(this._onlyMyArticlesUrl)
+  }
+
   logoutUser() {
     localStorage.removeItem('token');
     localStorage.removeItem('firstname');

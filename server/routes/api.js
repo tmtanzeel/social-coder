@@ -9,7 +9,7 @@ const Discussion = require('../models/discussion');
 const db = 'mongodb://tanzeel_123:mydbpass@cluster0-shard-00-00-znt38.mongodb.net:27017,cluster0-shard-00-01-znt38.mongodb.net:27017,cluster0-shard-00-02-znt38.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority'
 const jwt = require('jsonwebtoken');
 
-mongoose.connect(db, { useNewUrlParser: true }, err => {
+mongoose.connect(db, { useNewUrlParser: true, useFindAndModify: false }, err => {
   if(err) {
     console.log('Error: '+err);
   }
@@ -56,6 +56,47 @@ router.post('/login', (req, res) => {
         let token = jwt.sign(payLoad, 'secretKey');
         res.status(200).send({token, userData, user});
       }
+    }
+  })
+})
+
+router.get('/fetchback/:id', (req, res) => {
+  let articleId=req.params.id;
+  console.log('inside fetchback');
+  
+  console.log(articleId);
+  
+  Article.findOne({articleid: articleId}, (error, article) => {
+    if(error) {
+      console.log(error)
+    }
+    else {
+      if(!article) {
+        res.status(401).send('something went wrong')
+      }
+      else {
+        console.log(article);
+        res.json(article);
+      }
+    }
+  })
+})
+
+router.put('/update-article', (req, res) => {
+  let articleData = req.body;
+  console.log(articleData);
+  console.log("inside update article");
+  let articleId=req.body.articleid;
+  console.log(articleId);
+  
+  Article.findOneAndUpdate(
+    {articleid: articleId},
+     {title: articleData.title, content: articleData.content}, useFindAndModify=false, (error, user) => {
+    if(error) {
+      console.log(error)
+    }
+    else {
+      console.log("successfully updated");
     }
   })
 })
