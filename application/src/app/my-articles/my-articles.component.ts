@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../article.service';
 import { FormGroup, FormControl, NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { MessageService } from 'primeng/components/common/api';
 
 
 @Component({
@@ -44,7 +45,11 @@ export class MyArticlesComponent implements OnInit {
     ]
   }
 
-  constructor(private _articleService: ArticleService, private _authService: AuthService) { }
+  constructor(private messageService: MessageService, private _articleService: ArticleService, private _authService: AuthService) { }
+
+  addSingle() {
+    this.messageService.add({severity:'success', summary:'Success Message', detail:'Article updated'});
+  }
 
   ngOnInit() {
     this._authService.getMyArticles()
