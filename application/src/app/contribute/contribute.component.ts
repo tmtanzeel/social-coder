@@ -3,8 +3,6 @@ import { FormGroup, FormControl, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { MessageService } from 'primeng/components/common/api';
-import { delay } from 'q';
-
 
 @Component({
   selector: 'app-contribute',
@@ -13,6 +11,7 @@ import { delay } from 'q';
 })
 export class ContributeComponent implements OnInit {
   makeNewPost={
+    articleid: "",
     title: "",
     content: "",
     date: "",
@@ -63,7 +62,9 @@ export class ContributeComponent implements OnInit {
     var contributor = localStorage.getItem('firstname') +" "+localStorage.getItem('lastname');
     
     var date = new Date().toUTCString();
+    var randomId=Math.random().toString(36).substr(2, 9);
 
+    this.makeNewPost.articleid=randomId;
     this.makeNewPost.title=titleFromField;
     this.makeNewPost.content=content;
     this.makeNewPost.date=date;
