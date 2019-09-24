@@ -101,7 +101,9 @@ export class MyArticlesComponent implements OnInit {
     this._articleService.updateAnArticle(this.updatedPost)
     .subscribe (
       res => {
-        
+        (<HTMLInputElement>document.getElementById("title-container")).value="";
+        this.editorForm.reset();
+        this.addSingle();
       },
       err => console.log(err)
     );
