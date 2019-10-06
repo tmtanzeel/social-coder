@@ -97,6 +97,7 @@ router.put('/update-article', (req, res) => {
     }
     else {
       console.log("successfully updated");
+      res.status(200).send(true);
     }
   })
 })
