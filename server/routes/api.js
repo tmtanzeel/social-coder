@@ -18,7 +18,6 @@ mongoose.connect(db, { useNewUrlParser: true, useFindAndModify: false }, err => 
   }
 })
 
-//this will be passed in specialevents endpoint or contribute endpoint in this project
 function verifyToken(req, res, next) {
   if(!req.headers.authorization) {
     return res.status(401).send('Unauthorized request')
@@ -102,9 +101,10 @@ router.put('/update-article', (req, res) => {
   })
 })
 
-router.get('/myarticles', (req, res) => {
-  var person="Tanzeel Mirza";
-  console.log('Get request for tanzeel articles');
+router.get('/myarticles/:person', (req, res) => {
+  let person = req.params.person;
+  console.log(person);
+  console.log('Get request for '+person +' articles');
   Article.find({contributor: person}, (error, article) => {
     if(error) {
       console.log(error)

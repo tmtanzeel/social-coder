@@ -37,7 +37,7 @@
         </button>
       </li>&nbsp;&nbsp;
       <li class="nav-item signup">
-        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()" routerLink="/register">
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()" routerLink="/register" disabled>
           <i class="fa fa-question-circle"></i>&nbsp;Questions
         </button>
       </li>
