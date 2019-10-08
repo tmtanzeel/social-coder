@@ -21,6 +21,7 @@
     "@angular/router": "~8.0.0",
     "@nicky-lenaers/ngx-scroll-to": "^3.0.1",
     "ngx-bootstrap": "^5.1.2",
+    "font-awesome": "^4.7.0",
     "ngx-quill": "^7.2.0",
     "ngx-tags-input": "^2.0.1",
     "primeicons": "^2.0.0",

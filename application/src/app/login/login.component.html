@@ -1,28 +1,43 @@
-<div class="py-5">
-    <div class="row">
-      <div class="col-md-6 mx-auto">
-        <span class="anchor" id="formLogin"></span>
-        <!-- form card login -->
-        <div class="card rounded-0">
-          <div class="card-header">
-            <h3 class="mb-0">Login</h3>
-          </div>
-          <div class="card-body">
-            <form class="form">              
-              <div class="form-group">
-                <label for="email">Username</label>
-                <input type="text" [(ngModel)]="loginUserData.email" id="email" name="email" class="form-control rounded-0" required>
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" [(ngModel)]="loginUserData.password" id="password" name="password" class="form-control rounded-0" required>
-              </div>              
-              <button type="button" (click)="loginUser()" class="btn btn-primary float-right">Login</button>
-            </form>
-          </div>
-          <!--/card-block-->
+<div class="container-fluid">
+  <div class="row justify-content-center" style="margin-top: 40px;">
+    <div class="col-8">
+      <div class="jumbotron">
+        <h3>Login</h3>
+
+        <div>
+          <!-- registration form starts here -->
+          <form [formGroup]="form" novalidate>
+            <div class="form-group">
+              <label for="usernameInput">User Name</label>
+              <input formControlName="username" type="text" class="form-control" id="usernameInput" placeholder="Enter username">              
+            </div>
+
+            <div class="form-group">
+                <label for="passwordInput">Password</label>
+                <input formControlName="password" type="password" class="form-control" id="passwordInput" placeholder="Enter Password">
+            </div>
+
+            <button type="submit" (click)="onSubmit()" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+
+            <br><br>
+            <hr>
+            <div class="validations" *ngIf="form.touched">
+              
+              <span>
+                  <i class="fa fa-check-circle" style="color:green;" *ngIf="form.controls.username.valid"></i>
+                  <i class="fa fa-times-circle" style="color:firebrick;"  *ngIf="form.controls.username.invalid"></i>
+                  Username should be minimum 4 characters long.
+              </span>
+              <br>
+              <span>
+                  <i class="fa fa-check-circle" style="color:green;"  *ngIf="form.controls.password.valid"></i>
+                  <i class="fa fa-times-circle" style="color:firebrick;" *ngIf="form.controls.password.invalid"></i>
+                  Password should be minimum 4 characters long.
+              </span>
+            </div>
+          </form>
         </div>
-        <!-- /form card login -->
       </div>
     </div>
   </div>
+</div>
