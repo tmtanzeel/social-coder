@@ -22,6 +22,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private _auth: AuthService, private _router: Router) { 
     this.form  = this.fb.group({
+      firstname:[],
+      lastname:[],
       username: ['', [Validators.required,Validators.minLength(4)]],
       password: '',
       cnfpass: ['', [Validators.required, Validators.minLength(4), passValidator]]
@@ -39,6 +41,10 @@ export class RegisterComponent implements OnInit {
   registerUser() {
     if (!this.form.valid) return;
     this.form.markAsTouched();
+    this.registerUserData.firstName=this.form.value.firstname;    
+    this.registerUserData.lastName=this.form.value.lastname;    
+    this.registerUserData.email=this.form.value.username;    
+    this.registerUserData.password=this.form.value.password;    
     this._auth.registerUser(this.registerUserData)
     .subscribe(
       res => {

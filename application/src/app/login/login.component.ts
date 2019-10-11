@@ -10,31 +10,25 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  form: FormGroup;
+  flag= {
+    valid: true
+  }
+
+  message: string ='';
 
   loginUserData ={
     email: "",
     password: ""
   };
 
-  constructor( private fb: FormBuilder, private _auth: AuthService, private _router: Router) { 
-    this.form  = this.fb.group({
-      username: ['', [Validators.required,Validators.minLength(4)]],
-      password: ['', [Validators.required,Validators.minLength(4)]] 
-    });
-
+  constructor( private _auth: AuthService, private _router: Router) {
   }
 
   ngOnInit() {
   }
 
-  onSubmit(){
-    if (!this.form.valid) return;
-
-    // console.log(this.form.controls.zip);
-    this.form.markAsTouched();
-    this.loginUserData.email=this.form.value.username;
-    this.loginUserData.password=this.form.value.password;
+ 
+  onSubmit() {
     this._auth.loginUser(this.loginUserData)
     .subscribe(
       res => {
@@ -44,7 +38,13 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('lastname', res.user.lastName);
         this._router.navigate(['/articles']);
       },
-      err => console.log(err)
+      err => {
+        this.flag.valid=false,
+        // document.querySelector('#login-denied').innerHTML="hello";
+        this.message=err.error;
+      }
     )
   }
 }
+
+//console.log(err.error)

@@ -2,14 +2,27 @@
   <div class="row justify-content-center" style="margin-top: 40px;">
     <div class="col-8">
       <div class="jumbotron">
-        <h3>Register</h3>
-
+        <h3>Let's create an account for you - Quickly</h3>
+        <br>
         <div>
           <!-- registration form starts here -->
           <form [formGroup]="form" novalidate>
             <div class="form-group">
-              <label for="usernameInput">Username / Email</label>
-              <input formControlName="username" type="text" class="form-control" id="usernameInput" placeholder="Enter username">              
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="firstnameInput">Firstname</label>
+                  <input formControlName="firstname" type="text" class="form-control" id="firstnameInput">
+                </div>
+            
+                <div class="form-group col-md-6">
+                  <label for="lastnameInput">Lastname</label>
+                  <input formControlName="lastname" type="text" class="form-control" id="lastnameInput">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="usernameInput">Alias / Email</label>
+              <input formControlName="username" type="text" class="form-control" id="usernameInput" placeholder="Enter username">
             </div>
 
             <div class="form-group">
@@ -18,8 +31,8 @@
             </div>
 
             <div class="form-group">
-                <label for="confpasswordInput">Confirm Password</label>
-                <input formControlName="cnfpass" type="password" class="form-control" id="confpasswordInput" placeholder="Re-enter Password">
+                <label for="confpassInput">Confirm Password</label>
+                <input formControlName="cnfpass" type="password" class="form-control" id="confpassInput" placeholder="Re-enter Password">
             </div>
 
             <button type="submit" (click)="registerUser()" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
