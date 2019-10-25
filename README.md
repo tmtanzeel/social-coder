@@ -34,9 +34,11 @@ app.listen(port, function() {
 
 ### 1. auth.service.ts
 Replace the following variables. Notice that I've removed **http://localhost:3000** part
+```
     private _registerUrl = "api/register";
     private _loginUrl = "api/login";
     private _contributeUrl = "api/contribute";
     private _askUrl = "api/ask";
     private _deleteArtURL = "api/delete-article";
     private _onlyMyArticlesUrl = "api/myarticles";
+```
