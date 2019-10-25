@@ -44,5 +44,10 @@ Replace the following variables. Notice that I've removed **http://localhost:300
     private _deleteArtURL = "api/delete-article";
     private _onlyMyArticlesUrl = "api/myarticles";
 ```
-
-
+Do the same with **article.service.ts**
+```
+  private _articlesUrl = "http://localhost:3000/api/articles";
+  private _deleteUrl = "http://localhost:3000/api/delete";
+  private _fetchUrl = "http://localhost:3000/api/fetchback";
+  private _updateArtURL = "http://localhost:3000/api/update-article";
+```
