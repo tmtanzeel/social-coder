@@ -34,7 +34,7 @@ app.listen(port, function() {
 
 ## And if you want to deploy this app on Heroku. you've to make few changes in your code.
 
-### 1. auth.service.ts
+### 1. application/src/app/auth.service.ts
 Replace the following variables. Notice that I've removed **http://localhost:3000** part from every URL
 ```
     private _registerUrl = "api/register";
@@ -44,14 +44,14 @@ Replace the following variables. Notice that I've removed **http://localhost:300
     private _deleteArtURL = "api/delete-article";
     private _onlyMyArticlesUrl = "api/myarticles";
 ```
-Do the same with **article.service.ts**
+Do the same with **application/src/app/article.service.ts**
 ```
   private _articlesUrl = "api/articles";
   private _deleteUrl = "api/delete";
   private _fetchUrl = "api/fetchback";
   private _updateArtURL = "api/update-article";
 ```
-And the last one **discussion.service.ts**
+And the last one **application/src/app/discussion.service.ts**
 ```
 private _discussionsUrl = "api/discussions";
 ```
