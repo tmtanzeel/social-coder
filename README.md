@@ -12,6 +12,7 @@ There are two folders:
 
 ## If you want to run a built version on same port. Replace server.js code with the code below
 
+```
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -29,6 +30,7 @@ app.get('*', (req, res) => {
 app.listen(port, function() {
     console.log('server running on localhost:' + port);
 });
+```
 
 ## And if you want to deploy this app on Heroku. ypu've to make few changes in your code.
 
