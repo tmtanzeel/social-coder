@@ -55,3 +55,8 @@ And the last one **discussion.service.ts**
 ```
 private _discussionsUrl = "api/discussions";
 ```
+
+We did this because Heroku will have its own host and port number rather than localhost:3000
+
+### Now build the project using `ng build --prod`
+
