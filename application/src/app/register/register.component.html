@@ -21,8 +21,8 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="usernameInput">Alias / Email</label>
-              <input formControlName="username" type="text" class="form-control" id="usernameInput" placeholder="Enter username">
+              <label for="usernameInput">Username / Email</label>
+              <input formControlName="username" type="email" class="form-control" id="usernameInput" placeholder="Enter username">
             </div>
 
             <div class="form-group">
@@ -40,7 +40,12 @@
             <br><br>
             <hr>
             <div class="validations" *ngIf="form.touched">
-              
+              <span>
+                  <i class="fa fa-check-circle" style="color:green;"  *ngIf="form.controls.firstname.valid && form.controls.lastname.valid"></i>
+                  <i class="fa fa-times-circle" style="color:firebrick;" *ngIf="form.controls.firstname.invalid || form.controls.lastname.invalid"></i>
+                  Minimum length of first and last name is 4 characters
+              </span>
+              <br>
               <span>
                   <i class="fa fa-check-circle" style="color:green;" *ngIf="form.controls.username.valid"></i>
                   <i class="fa fa-times-circle" style="color:firebrick;"  *ngIf="form.controls.username.invalid"></i>
@@ -56,8 +61,8 @@
               <span>
                 <i class="fa fa-check-circle" style="color:green;"  *ngIf="form.controls.cnfpass.valid"></i>
                 <i class="fa fa-times-circle" style="color:firebrick;" *ngIf="form.controls.cnfpass.invalid"></i>
-                Minnimum Password length is 4 digit.
-            </span>
+                Minimum password length is 4 digit.
+            </span>             
             </div>
           </form>
         </div>
