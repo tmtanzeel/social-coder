@@ -10,7 +10,7 @@ There are two folders:
 1) application: is the angular app that runs on localhost 4200
 2) server: is an express server which makes call to routes/api and runs on localhost 3000
 
-## Before deploying this app. Replace server.js code with the code below
+## If you want to run a built version on same port. Replace server.js code with the code below
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -34,3 +34,5 @@ app.get('*', (req, res) => {
 app.listen(port, function() {
     console.log('server running on localhost:' + port);
 });
+
+## And if you want to deploy this app on Heroku. Replace server.js code with the code below
