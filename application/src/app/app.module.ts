@@ -30,6 +30,8 @@ import { MessageService } from 'primeng/api';
 import { MyArticlesComponent } from './my-articles/my-articles.component';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
 
+import {TooltipModule} from 'primeng/tooltip';
+
 
 
 @NgModule({
@@ -61,7 +63,8 @@ import { ArticleDetailComponent } from './article-detail/article-detail.componen
     ReactiveFormsModule,
     ScrollToModule.forRoot(),
     NgxTagsInputModule,
-    ToastModule
+    ToastModule,
+    TooltipModule
   ],
   providers: [MessageService, AuthService, AuthGuard, ArticleService,
   {
