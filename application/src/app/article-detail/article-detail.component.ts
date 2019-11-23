@@ -13,8 +13,8 @@ export interface MyObject {
 export class ArticleDetailComponent implements OnInit {
   articleId : String = '';
   articleDetails : { content?: string } = { content: '' };
-  //incomingArticleObject: { content?: string } = { content: '' };
 
+  downvotes: number = 5;
   constructor(private router: Router, private _articleService: ArticleService) { }
 
   ngOnInit() {
