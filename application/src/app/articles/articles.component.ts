@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../article.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,9 @@ import { ArticleService } from '../article.service';
 export class ArticlesComponent implements OnInit {
 
   articles = []
-  constructor(private _articleService: ArticleService) { }
+  constructor(private _articleService: ArticleService, private router: Router) { }
+
+  articledId : String = '';
 
   ngOnInit() {
     this._articleService.getEvents()
@@ -20,13 +23,12 @@ export class ArticlesComponent implements OnInit {
     )
   }
 
-  onPress(id) {
-    this._articleService.getEvents()
-    .subscribe (
-      data => {
-        document.querySelector('#data-container').innerHTML=data[id].content;
-        document.querySelector('#contributor-container').innerHTML="Contributor: "+data[id].contributor;
-      }
-    );
+  goToArticle(id) {
+    /*
+      THIS 'id' IS AN OBJECT. SO WE HAVE TO TAKE OUT articleID FROM THAT OBJECT.
+      'articleID' IS ALREADY DEFINED IN MONGODB JSON. THEREFORE WE ARE PASSING id.articleid TO
+      setClickedrticleObj METHOD BELOW */
+    this._articleService.setClickedArticleObj(id.articleid);
+    this.router.navigate(['/options']);
   }
 }

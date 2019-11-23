@@ -3,20 +3,11 @@
     <div class="card text-center">
       <div class="card-body">
         <h5 class="card-title">{{article.title}}</h5>
-        <!-- <p class="card-text">{{article.content}}</p> -->
-        <a (click)="onPress(i)" class="btn btn-primary" [ngx-scroll-to]="'#data-container'">Read More</a>
+        <a (click)="goToArticle(article)" class="btn btn-primary">Read More</a>
       </div>
       <div class="card-footer text-muted">
         {{article.date}}
       </div>
     </div>
   </div>
-</div>
-<br>
-<hr>
-<div class="data-container" id="data-container">
-  <h3 class="content-head">Content will be displayed here</h3>
-</div>
-<div class="contributor-container" id="contributor-container">
-  <h4 class="contributor-head"></h4>
 </div>

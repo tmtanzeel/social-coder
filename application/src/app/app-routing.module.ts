@@ -10,6 +10,7 @@ import { UnknownComponentComponent } from './unknown-component/unknown-component
 import { DiscussionsComponent } from './discussions/discussions.component';
 import { AskComponent } from './ask/ask.component';
 import { MyArticlesComponent } from './my-articles/my-articles.component';
+import { ArticleDetailComponent } from './article-detail/article-detail.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'ask', component: AskComponent},
   {path: 'myarticles', component: MyArticlesComponent},
+  {path: 'options', component:ArticleDetailComponent, pathMatch:'full'},
   {path: '**', component: UnknownComponentComponent}
 ];
 

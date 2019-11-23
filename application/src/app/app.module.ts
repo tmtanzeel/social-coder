@@ -28,6 +28,7 @@ import { NgxTagsInputModule } from 'ngx-tags-input';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { MyArticlesComponent } from './my-articles/my-articles.component';
+import { ArticleDetailComponent } from './article-detail/article-detail.component';
 
 
 
@@ -46,7 +47,8 @@ import { MyArticlesComponent } from './my-articles/my-articles.component';
     UnknownComponentComponent,
     DiscussionsComponent,
     AskComponent,
-    MyArticlesComponent
+    MyArticlesComponent,
+    ArticleDetailComponent
   ],
   imports: [
     BrowserModule,
