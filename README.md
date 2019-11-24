@@ -17,7 +17,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const api = require('./routes/api');
-const port = 3000;
+const port = process.env.PORT || 8080;
 const app = express();
 
 app.use(express.static(path.join(__dirname, 'dist/application')));
