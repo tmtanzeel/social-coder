@@ -32,6 +32,11 @@ export class ArticleService {
     return this.http.put<any>(this._updateArtURL, updatedArticle);
   }
 
+  increaseUpvote(updatedArticle) {
+    console.log("updateAnArticle called");
+    return this.http.put<any>(this._updateArtURL, updatedArticle);
+  }
+
   setClickedArticleObj(id) {
     localStorage.setItem('__ai', id);
   }

@@ -12,7 +12,7 @@ export interface MyObject {
 })
 export class ArticleDetailComponent implements OnInit {
   articleId : String = '';
-  articleDetails : { content?: string } = { content: '' };
+  articleDetails : { content?: string, upvotes?: number } = { content: '' };
 
   downvotes: number = 5;
   constructor(private router: Router, private _articleService: ArticleService) { }
@@ -29,8 +29,13 @@ export class ArticleDetailComponent implements OnInit {
     //console.log(this.incomingArticleObject);
   }
 
-  back(){
+  back() {
     this.router.navigate(['/articles'])
+  }
+
+  upvoted() {
+    console.log("User has upvoted this article");
+    console.log("Current upvotes: "+this.articleDetails.upvotes);
   }
 }
 
