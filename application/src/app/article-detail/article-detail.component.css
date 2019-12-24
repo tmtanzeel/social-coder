@@ -7,6 +7,10 @@
   background-color: #e7e7e7;
 }
 
+::ng-deep .tooltip .ui-tooltip-text {
+  width: 100em; 
+}
+
 .content-head {
     margin-top: 20px;
     text-align: center;
