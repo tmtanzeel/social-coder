@@ -12,9 +12,16 @@ export interface MyObject {
 })
 export class ArticleDetailComponent implements OnInit {
   articleId : String = '';
-  articleDetails : { content?: string, upvotes?: number } = { content: '' };
+  articleDetails : { content?: string, upvotes?: number, upvoters?: string[] } = { content: '' };
 
   downvotes: number = 5;
+
+  currentLoggedInUserId: string;
+
+  allowUpvote=true;
+  msg1="I found this article very useful.";
+  msg2="You've already upvoted this article.";
+
   constructor(private router: Router, private _articleService: ArticleService) { }
 
   ngOnInit() {
@@ -23,7 +30,14 @@ export class ArticleDetailComponent implements OnInit {
     this.articleDetails  = article;
     //console.log(this.articleDetails);
     document.querySelector('#data-container').innerHTML=this.articleDetails.content;
-    });
+    console.log(this.articleDetails.upvoters);
+    this.currentLoggedInUserId=localStorage.getItem('userid');
+    for(var i=0;i<5;i++) {
+      if(this.currentLoggedInUserId==this.articleDetails.upvoters[i]) {
+        this.allowUpvote=false;
+      }
+    }
+  });
 
     
     //console.log(this.incomingArticleObject);

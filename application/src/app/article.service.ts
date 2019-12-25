@@ -33,7 +33,7 @@ export class ArticleService {
   }
 
   increaseUpvote(updatedArticle) {
-    console.log("updateAnArticle called");
+    console.log("increase an upvote called");
     return this.http.put<any>(this._updateArtURL, updatedArticle);
   }
 

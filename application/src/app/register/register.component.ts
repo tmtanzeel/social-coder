@@ -15,7 +15,8 @@ export class RegisterComponent implements OnInit {
     firstName: "",
     lastName: "",
     email: "",
-    password: ""
+    password: "",
+    userid: ""
   };
 
   form: FormGroup;
@@ -44,7 +45,9 @@ export class RegisterComponent implements OnInit {
     this.registerUserData.firstName=this.form.value.firstname;    
     this.registerUserData.lastName=this.form.value.lastname;    
     this.registerUserData.email=this.form.value.username;    
-    this.registerUserData.password=this.form.value.password;    
+    this.registerUserData.password=this.form.value.password;
+    var randomUserId=Math.random().toString(36).substr(2, 9);
+    this.registerUserData.userid=randomUserId;
     this._auth.registerUser(this.registerUserData)
     .subscribe(
       res => {

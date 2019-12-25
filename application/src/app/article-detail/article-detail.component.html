@@ -1,6 +1,6 @@
 <div class="button-panel">
     <button class="btn btn-default fa fa-arrow-left"  (click)="back()"> Back</button>
-    <button class="btn btn-success fa fa-thumbs-up" (click)="upvoted()" pTooltip="I found this article very useful." tooltipPosition="bottom" showDelay="200" hideDelay="100">
+    <button class="btn btn-success fa fa-thumbs-up" (click)="upvoted()" [pTooltip] = "allowUpvote ? msg1 : msg2" tooltipPosition="bottom" showDelay="200" hideDelay="100" [disabled]="!allowUpvote">
         Upvote ({{ articleDetails.upvotes }})
     </button>
     <button class="btn btn-warning fa fa-thumbs-down" pTooltip="Useless! Not worth reading." tooltipPosition="bottom" showDelay="200" hideDelay="100">
