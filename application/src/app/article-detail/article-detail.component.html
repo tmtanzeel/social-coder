@@ -1,10 +1,10 @@
 <div class="button-panel">
     <button class="btn btn-default fa fa-arrow-left"  (click)="back()"> Back</button>
     <button class="btn btn-success fa fa-thumbs-up" (click)="upvoted()" [pTooltip] = "allowUpvote ? msg1 : msg2" tooltipPosition="bottom" showDelay="200" hideDelay="100" [disabled]="!allowUpvote">
-        Upvote ({{ articleDetails.upvotes }})
+        Upvote ({{ currentUpvotes }})
     </button>
-    <button class="btn btn-warning fa fa-thumbs-down" pTooltip="Useless! Not worth reading." tooltipPosition="bottom" showDelay="200" hideDelay="100">
-        Downvote ({{ articleDetails.downvotes }})
+    <button class="btn btn-warning fa fa-thumbs-down" (click)="downvoted()" [pTooltip] = "allowDownvote ? msg3 : msg4" tooltipPosition="bottom" showDelay="200" hideDelay="100" [disabled]="!allowDownvote">
+        Downvote ({{ currentDownvotes }})
     </button>
     <button class="btn btn-warning fa fa-clone" pTooltip="A similar article already exists." tooltipPosition="bottom" showDelay="200" hideDelay="100"> Duplicate </button>
     <button class="btn btn-info fa fa-lightbulb-o" pTooltip="Good! But some improvements are required." tooltipPosition="bottom" showDelay="200" hideDelay="100"> Suggest </button>
@@ -17,3 +17,6 @@
 <div class="contributor-container" id="contributor-container">
     <h4 class="contributor-head">Contributor: {{ articleDetails.contributor }}</h4>
 </div>
+
+
+<!--  -->

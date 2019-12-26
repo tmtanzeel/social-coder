@@ -48,9 +48,9 @@ router.post('/login', (req, res) => {
         res.status(401).send('Invalid password')
       }
       else {
-        console.log(userData.email);
-        console.log(userData.password);
-        console.log(user.firstName);
+        //console.log(userData.email);
+        //console.log(userData.password);
+        //console.log(user.firstName);
         let payLoad = { subject: user._id };
         let token = jwt.sign(payLoad, 'secretKey');
         res.status(200).send({token, userData, user});
@@ -61,9 +61,9 @@ router.post('/login', (req, res) => {
 
 router.get('/fetchback/:id', (req, res) => {
   let articleId=req.params.id;
-  console.log('inside fetchback');
+  //console.log('inside fetchback');
   
-  console.log(articleId);
+  //console.log(articleId);
   
   Article.findOne({articleid: articleId}, (error, article) => {
     if(error) {
@@ -74,7 +74,7 @@ router.get('/fetchback/:id', (req, res) => {
         res.status(401).send('something went wrong')
       }
       else {
-        console.log(article);
+        //console.log(article);
         res.json(article);
       }
     }
@@ -83,10 +83,10 @@ router.get('/fetchback/:id', (req, res) => {
 
 router.put('/update-article', (req, res) => {
   let articleData = req.body;
-  console.log(articleData);
-  console.log("inside update article");
+  //console.log(articleData);
+  //console.log("inside update article");
   let articleId=req.body.articleid;
-  console.log(articleId);
+  //console.log(articleId);
   
   Article.findOneAndUpdate(
     {articleid: articleId},
@@ -100,6 +100,49 @@ router.put('/update-article', (req, res) => {
     }
   })
 })
+
+router.put('/update-upvotes/:id', (req, res) => {
+  let upvoterId=req.params.id;
+  let articleData = req.body;
+  let articleId=req.body.articleid;
+  Article.update(
+    { articleid: articleId },
+    { $pull: { downvoters: upvoterId } }
+  ).then(opResult => console.log(opResult));
+  Article.findOneAndUpdate(
+    {articleid: articleId},
+    {upvotes: articleData.upvotes, upvoters: articleData.upvoters}, useFindAndModify=false, (error, user) => {
+    if(error) {
+      console.log(error);
+    }
+    else {
+      console.log("successfully updated");
+      res.status(200).send(true);
+    }
+  })
+})
+
+router.put('/update-downvotes/:id', (req, res) => {
+  let downvoterId=req.params.id;
+  let articleData = req.body;
+  let articleId=req.body.articleid;
+  Article.update(
+    { articleid: articleId },
+    { $pull: { upvoters: downvoterId } }
+  ).then(opResult => console.log(opResult));
+  Article.findOneAndUpdate(
+    {articleid: '5p4aqbryi'},
+     {downvotes: articleData.downvotes, downvoters: articleData.downvoters}, useFindAndModify=false, (error, user) => {
+    if(error) {
+      console.log(error)
+    }
+    else {
+      console.log("successfully updated");
+      res.status(200).send(true);
+    }
+  })
+})
+
 
 router.get('/myarticles/:person', (req, res) => {
   let person = req.params.person;
@@ -160,7 +203,7 @@ router.post('/register', (req, res) => {
 router.post('/contribute', (req, res) => {
   console.log('Pushing new article');
   let userPost = req.body;
-  console.log(userPost);
+  //console.log(userPost);
   let post = new Post(userPost);
   post.save((error, registeredPost) => {
     if(error) {
@@ -173,9 +216,9 @@ router.post('/contribute', (req, res) => {
 })
 
 router.post('/ask', (req, res) => {
-  console.log('Pushing new question');
+  //console.log('Pushing new question');
   let userQuest = req.body;
-  console.log(userQuest);
+  //console.log(userQuest);
   let post = new Quest(userQuest);
   post.save((error, registeredQuest) => {
     if(error) {

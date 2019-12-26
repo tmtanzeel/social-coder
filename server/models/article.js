@@ -6,7 +6,10 @@ const articleSchema = new Schema({
   title: String,
   content: String,
   date: String,
-  contributor: String
+  contributor: String,
+  upvotes: Number,
+  upvoters: [String],
+  downvotes: Number,
+  downvoters: [String]
 })
-
 module.exports = mongoose.model('article', articleSchema, 'articles');

@@ -9,7 +9,9 @@ export class ArticleService {
   private _deleteUrl = "http://localhost:3000/api/delete";
   private _fetchUrl = "http://localhost:3000/api/fetchback";
   private _updateArtURL = "http://localhost:3000/api/update-article";
-  
+  private _updateArtUpvotesURL = "http://localhost:3000/api/update-upvotes";
+  private _updateArtDownvotesURL = "http://localhost:3000/api/update-downvotes";
+
   clickedArticle : Object = {};
 
   constructor(private http: HttpClient) { }
@@ -32,9 +34,14 @@ export class ArticleService {
     return this.http.put<any>(this._updateArtURL, updatedArticle);
   }
 
-  increaseUpvote(updatedArticle) {
+  increaseUpvote(updatedArticle, id) {
     console.log("increase an upvote called");
-    return this.http.put<any>(this._updateArtURL, updatedArticle);
+    return this.http.put<any>(this._updateArtUpvotesURL+'/'+id, updatedArticle);
+  }
+
+  decreaseUpvote(updatedArticle, id) {
+    console.log("decrease an upvote called");
+    return this.http.put<any>(this._updateArtDownvotesURL+'/'+id, updatedArticle);
   }
 
   setClickedArticleObj(id) {
