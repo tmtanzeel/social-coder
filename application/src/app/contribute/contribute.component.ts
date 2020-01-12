@@ -37,7 +37,7 @@ export class ContributeComponent implements OnInit {
   config = {
     toolbar: [
       ['bold', 'italic', 'underline', 'strike'],
-      ['code-block'],
+      ['image','code-block'],
       [{ 'list': 'ordered'}, { 'list': 'bullet' }],
       [{ 'script': 'sub'}, { 'script': 'super' }],
       [{ 'size': ['small', false, 'large', 'huge'] }],
