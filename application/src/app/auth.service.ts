@@ -8,12 +8,12 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   constructor(private _http: HttpClient, private _router: Router) { }
-  private _registerUrl = "http://localhost:3000/api/register";
-  private _loginUrl = "http://localhost:3000/api/login";
-  private _contributeUrl = "http://localhost:3000/api/contribute";
-  private _askUrl = "http://localhost:3000/api/ask";
-  private _deleteArtURL = "http://localhost:3000/api/delete-article";
-  private _onlyMyArticlesUrl = "http://localhost:3000/api/myarticles";
+  private _registerUrl = "api/register";
+  private _loginUrl = "api/login";
+  private _contributeUrl = "api/contribute";
+  private _askUrl = "api/ask";
+  private _deleteArtURL = "api/delete-article";
+  private _onlyMyArticlesUrl = "api/myarticles";
 
   registerUser(user) {
     return this._http.post<any>(this._registerUrl, user);

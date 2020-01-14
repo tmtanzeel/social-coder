@@ -5,12 +5,12 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ArticleService {
-  private _articlesUrl = "http://localhost:3000/api/articles";
-  private _deleteUrl = "http://localhost:3000/api/delete";
-  private _fetchUrl = "http://localhost:3000/api/fetchback";
-  private _updateArtURL = "http://localhost:3000/api/update-article";
-  private _updateArtUpvotesURL = "http://localhost:3000/api/update-upvotes";
-  private _updateArtDownvotesURL = "http://localhost:3000/api/update-downvotes";
+  private _articlesUrl = "api/articles";
+  private _deleteUrl = "api/delete";
+  private _fetchUrl = "api/fetchback";
+  private _updateArtURL = "api/update-article";
+  private _updateArtUpvotesURL = "api/update-upvotes";
+  private _updateArtDownvotesURL = "api/update-downvotes";
 
   clickedArticle : Object = {};
 
