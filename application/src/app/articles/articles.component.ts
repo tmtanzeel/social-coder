@@ -10,17 +10,41 @@ import { Router } from '@angular/router';
 })
 export class ArticlesComponent implements OnInit {
 
-  articles = []
+  articles = [];
+  filteredArticles=[];
+
   constructor(private _articleService: ArticleService, private router: Router) { }
 
   articledId : String = '';
+  text='';
+  resulttext="all";
+
+
 
   ngOnInit() {
     this._articleService.getEvents()
     .subscribe(
-      res => this.articles = res,
+      res => {
+        this.articles = res,
+        this.filteredArticles = res},
       err => console.log(err)
     )
+  }
+
+  pressed(text: string) {
+    this.resulttext=text;
+    this.CallSearch(text);
+  }
+
+  CallSearch(text: string) {
+    this.SearchFunction(text);
+  }
+
+  SearchFunction(text: string) {
+    this.filteredArticles=(this.articles.filter(e => {
+      return e.title.toLocaleLowerCase() === text.toLocaleLowerCase ||
+      e.title.toLowerCase().indexOf(text.toLowerCase()) >= 0
+    }));
   }
 
   goToArticle(id) {

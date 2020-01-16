@@ -1,35 +1,73 @@
 .row {
-  max-height: 50%;
+    max-height: 50%;
 }
 
 .actual-image {
-  max-width: 100%;
-  max-height: 100%;
+    max-width: 50%;
+    max-height: auto;
 }
 
 .first {
-  font-size: 35px;
-  font-family: 'Muli', sans-serif;
-  color: salmon;
+    font-size: 30px;
+    font-family: 'Muli', sans-serif;
+    color: salmon;
 }
 
 .second {
-  font-size: 25px;
-  font-family: 'Muli', sans-serif;
+    font-size: 20px;
+    font-family: 'Muli', sans-serif;
 }
 
 .third {
-  font-size: 25px;
-  font-family: 'Muli', sans-serif;
+    font-size: 20px;
+    font-family: 'Muli', sans-serif;
 }
 
 .fourth {
-  font-size: 35px;
-  font-family: 'Muli', sans-serif;
-  color: salmon;
+    font-size: 30px;
+    font-family: 'Muli', sans-serif;
+    color: salmon;
 }
 
 .fifth {
-  font-size: 25px;
-  font-family: 'Muli', sans-serif;
+    font-size: 20px;
+    font-family: 'Muli', sans-serif;
+}
+
+.sixth {
+    font-size: 20px;
+    font-family: 'Muli', sans-serif;
+}
+
+.powered-by-row {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.powered-by-span {}
+
+.sponcers-row {
+    position: absolute;
+    width: 50%;
+    margin-top: 10px;
+    margin-left: 80px;
+}
+
+.mongodb-image {
+    max-width: 100%;
+}
+
+.mega-image {
+    max-width: 50%;
+    margin-top: 10px;
+}
+
+.kendo-image {
+    max-width: 60%;
+}
+
+.codevolution-image {
+    max-width: 100%;
+    vertical-align: baseline;
+    margin-top: 15px;
 }
