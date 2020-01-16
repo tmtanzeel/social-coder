@@ -19,8 +19,6 @@ export class ArticlesComponent implements OnInit {
   text='';
   resulttext="all";
 
-
-
   ngOnInit() {
     this._articleService.getEvents()
     .subscribe(
