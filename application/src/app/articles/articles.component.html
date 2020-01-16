@@ -1,10 +1,15 @@
-<div class="search-wrapper">
-    <input type="search" class="search-input" placeholder="For eg: react" [(ngModel)]='text'>
-    <button class="btn btn-outline-danger my-2 my-sm-0" (click)="pressed(text)">Search</button>
+<div class="container">
+    <div class="row">
+        <div class="col-mg-6 col-lg-6 col-sm-6 result-wrapper">
+            <h5>Showing results for: {{resulttext}}</h5>
+        </div>
+        <div class="col-mg-6 col-lg-6 col-sm-6 search-wrapper">
+            <button class="btn btn-outline-danger my-2 my-sm-0" (click)="pressed(text)">Search</button>
+            <input type="search" class="search-input" placeholder="For eg: react" [(ngModel)]='text'>
+        </div>
+    </div>
 </div>
-<div class="search-wrapper">
-    <h5>Showing results for: {{resulttext}}</h5>
-</div>
+<hr>
 <div class="row mt-5">
     <div class="col-md-4 mb-3" *ngFor="let article of filteredArticles; let i = index;">
         <div class="card text-center">
