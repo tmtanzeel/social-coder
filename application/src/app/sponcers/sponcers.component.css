@@ -5,3 +5,18 @@
 .sponcer-image {
     max-width: 130px;
 }
+
+#template{
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  
+  }
+  span{
+    border: 2px solid black;
+    height: 100px;
+    width: 100%;
+  }
