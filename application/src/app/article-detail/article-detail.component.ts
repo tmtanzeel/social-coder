@@ -13,7 +13,7 @@ export interface MyObject {
 })
 export class ArticleDetailComponent implements OnInit {
   articleId : String = '';
-  articleDetails : { content?: string, upvotes?: number, upvoters?: string[], downvotes?: number, downvoters?: string[] } = { content: '' };
+  articleDetails : { title?: string, content?: string, contributor?: string, upvotes?: number, upvoters?: string[], downvotes?: number, downvoters?: string[] } = { content: '' };
 
   
 
