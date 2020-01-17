@@ -38,36 +38,3 @@
     font-size: 20px;
     font-family: 'Muli', sans-serif;
 }
-
-.powered-by-row {
-    margin-top: 100px;
-    text-align: center;
-}
-
-.powered-by-span {}
-
-.sponcers-row {
-    position: absolute;
-    width: 50%;
-    margin-top: 10px;
-    margin-left: 80px;
-}
-
-.mongodb-image {
-    max-width: 100%;
-}
-
-.mega-image {
-    max-width: 50%;
-    margin-top: 10px;
-}
-
-.kendo-image {
-    max-width: 60%;
-}
-
-.codevolution-image {
-    max-width: 100%;
-    vertical-align: baseline;
-    margin-top: 15px;
-}
