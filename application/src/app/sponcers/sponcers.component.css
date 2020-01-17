@@ -6,6 +6,20 @@
     max-width: 130px;
 }
 
+.npm-logo {
+    margin-top: 3px;
+    max-width: 90px;
+}
+
+.fontawesome-logo {
+    margin-top: 10px;
+    max-width: 200px;
+}
+
+.quill-logo {
+    max-width: 70px;
+}
+
 #template{
   
     display: flex;
