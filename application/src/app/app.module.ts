@@ -31,7 +31,14 @@ import { MyArticlesComponent } from './my-articles/my-articles.component';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
 
 import {TooltipModule} from 'primeng/tooltip';
+import { SponcersComponent } from './sponcers/sponcers.component';
 
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent }
+];
 
 
 @NgModule({
@@ -50,11 +57,13 @@ import {TooltipModule} from 'primeng/tooltip';
     DiscussionsComponent,
     AskComponent,
     MyArticlesComponent,
-    ArticleDetailComponent
+    ArticleDetailComponent,
+    SponcersComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    CarouselModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
@@ -64,7 +73,8 @@ import {TooltipModule} from 'primeng/tooltip';
     ScrollToModule.forRoot(),
     NgxTagsInputModule,
     ToastModule,
-    TooltipModule
+    TooltipModule,
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [MessageService, AuthService, AuthGuard, ArticleService,
   {

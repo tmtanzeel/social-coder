@@ -1,55 +1,55 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <i class="fa fa-code fa-1x fa-lg"></i>&nbsp;
-  <a class="navbar-brand" href="#">SocialCoder</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-code fa-1x fa-lg"></i>&nbsp;
+    <a class="navbar-brand" href="#">SocialCoder</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/articles" routerLinkActive="active">Articles</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/discussions" routerLinkActive="active">Q&A</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/contribute" style="cursor: pointer" *ngIf="_authService.loggedIn()" routerLinkActive="active">Contribute</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/ask" style="cursor: pointer" *ngIf="_authService.loggedIn()" routerLinkActive="active">Ask</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav">
-      <li class="nav-item login">
-        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" *ngIf="!_authService.loggedIn()" routerLink="/login">Login</button>
-      </li>
-      &nbsp;&nbsp;
-      <li class="nav-item signup">
-        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" *ngIf="!_authService.loggedIn()" routerLink="/register">Register</button>
-      </li>
-      <li class="nav-item signup">
-        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" *ngIf="_authService.loggedIn()" (click)="_authService.getMyArticles()" routerLink="/myarticles">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/articles" routerLinkActive="active">Articles</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/discussions" routerLinkActive="active">Q&A</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/contribute" style="cursor: pointer" *ngIf="_authService.loggedIn()" routerLinkActive="active">Contribute</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/ask" style="cursor: pointer" *ngIf="_authService.loggedIn()" routerLinkActive="active">Ask</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item login">
+                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" *ngIf="!_authService.loggedIn()" routerLink="/login">Login</button>
+            </li>
+            &nbsp;&nbsp;
+            <li class="nav-item signup">
+                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" *ngIf="!_authService.loggedIn()" routerLink="/register">Register</button>
+            </li>
+            <li class="nav-item signup">
+                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" *ngIf="_authService.loggedIn()" (click)="_authService.getMyArticles()" routerLink="/myarticles">
           <i class="fa fa-pencil"></i>&nbsp;Articles
         </button>
-      </li>&nbsp;&nbsp;
-      <li class="nav-item signup">
-        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()" routerLink="/register" disabled>
+            </li>&nbsp;&nbsp;
+            <li class="nav-item signup">
+                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()" routerLink="/register" disabled>
           <i class="fa fa-question-circle"></i>&nbsp;Questions
         </button>
-      </li>
-      &nbsp;&nbsp;
-      <li class="nav-item signup">
-        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()" routerLink="/register">
+            </li>
+            &nbsp;&nbsp;
+            <li class="nav-item signup">
+                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()" routerLink="/register">
           <i class="fa fa-sign-out"></i>&nbsp;Logout
         </button>
-      </li>
-    </ul>
-  </div>
+            </li>
+        </ul>
+    </div>
 </nav>
 <div class="container">
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 </div>

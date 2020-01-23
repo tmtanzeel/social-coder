@@ -1,0 +1,36 @@
+.owl-carousel, .owl-stage {
+    margin-top: 100px !important;
+}
+
+.sponcer-image {
+    max-width: 130px;
+}
+
+.npm-logo {
+    margin-top: 3px;
+    max-width: 90px;
+}
+
+.fontawesome-logo {
+    margin-top: 10px;
+    max-width: 200px;
+}
+
+.quill-logo {
+    max-width: 70px;
+}
+
+#template{
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  
+  }
+  span{
+    border: 2px solid black;
+    height: 100px;
+    width: 100%;
+  }
