@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DiscussionService {
-  private _discussionsUrl = "api/discussions";
+  private _discussionsUrl = "http://localhost:3000/api/discussions";
   constructor(private http: HttpClient) { }
 
   getDiscussions() {
