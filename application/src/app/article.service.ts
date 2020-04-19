@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { catchError, tap, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +23,6 @@ export class ArticleService {
   }
 
   deleteArticle(id) {
-    console.log("to be dleted "+id);
     return this.http.delete<any>(this._deleteUrl+'/'+id);
   }
 
@@ -30,17 +31,14 @@ export class ArticleService {
   }
 
   updateAnArticle(updatedArticle) {
-    console.log("updateAnArticle called");
     return this.http.put<any>(this._updateArtURL, updatedArticle);
   }
 
   increaseUpvote(updatedArticle, id) {
-    console.log("increase an upvote called");
     return this.http.put<any>(this._updateArtUpvotesURL+'/'+id, updatedArticle);
   }
 
   decreaseUpvote(updatedArticle, id) {
-    console.log("decrease an upvote called");
     return this.http.put<any>(this._updateArtDownvotesURL+'/'+id, updatedArticle);
   }
 
@@ -51,6 +49,13 @@ export class ArticleService {
   getClickedArticle() {
     return localStorage.getItem('__ai');
   }
+
+  getArticleById(id: string): Observable<any>  {
+    return this.getAllArticles()
+      .pipe(
+        map((articles: any[]) => articles.find(article => article.articleid === id))
+      );
+}
 
   getAllArticles() {
     return this.http.get<any>(this._articlesUrl)

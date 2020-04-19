@@ -15,13 +15,13 @@ import { ArticleDetailComponent } from './article-detail/article-detail.componen
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'articles', component: ArticlesComponent},
+  {path: 'articles/:id', component: ArticleDetailComponent},
   {path: 'contribute', component: ContributeComponent, canActivate: [AuthGuard]},
   {path: 'discussions', component: DiscussionsComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'ask', component: AskComponent},
   {path: 'myarticles', component: MyArticlesComponent},
-  {path: 'options', component:ArticleDetailComponent, pathMatch:'full'},
   {path: '**', component: UnknownComponentComponent}
 ];
 

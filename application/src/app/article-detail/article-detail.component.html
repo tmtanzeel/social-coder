@@ -1,9 +1,9 @@
 <div class="button-panel">
-    <button class="btn btn-default fa fa-arrow-left"  (click)="back()"> Back</button>
-    <button class="btn btn-success fa fa-thumbs-up" (click)="upvoted()" [pTooltip] = "allowUpvote ? msg1 : msg2" tooltipPosition="bottom" showDelay="200" hideDelay="100" [disabled]="!allowUpvote">
+    <button class="btn btn-default fa fa-arrow-left" (click)="back()"> Back</button>
+    <button class="btn btn-success fa fa-thumbs-up" (click)="upvoted()" [pTooltip]="allowUpvote ? msg1 : msg2" tooltipPosition="bottom" showDelay="200" hideDelay="100" [disabled]="!allowUpvote">
         Upvote ({{ currentUpvotes }})
     </button>
-    <button class="btn btn-warning fa fa-thumbs-down" (click)="downvoted()" [pTooltip] = "allowDownvote ? msg3 : msg4" tooltipPosition="bottom" showDelay="200" hideDelay="100" [disabled]="!allowDownvote">
+    <button class="btn btn-warning fa fa-thumbs-down" (click)="downvoted()" [pTooltip]="allowDownvote ? msg3 : msg4" tooltipPosition="bottom" showDelay="200" hideDelay="100" [disabled]="!allowDownvote">
         Downvote ({{ currentDownvotes }})
     </button>
     <button class="btn btn-warning fa fa-clone" pTooltip="A similar article already exists." tooltipPosition="bottom" showDelay="200" hideDelay="100"> Duplicate </button>
@@ -11,12 +11,9 @@
     <button class="btn btn-danger fa fa-remove" pTooltip="Misleading and Irrelevant! Request an immediate removal." tooltipPosition="bottom" showDelay="200" hideDelay="100"> Whistleblow </button>
 </div>
 <div style="margin: 0 auto;">
-    <h3 class="content-head">{{ articleDetails.title }}</h3>
+    <h3 class="content-head">{{ article?.title }}</h3>
     <p class="data-container" id="data-container"></p>
 </div>
 <div class="contributor-container" id="contributor-container">
-    <h4 class="contributor-head">Contributor: {{ articleDetails.contributor }}</h4>
+    <h4 class="contributor-head">Contributor: {{ article?.contributor }}</h4>
 </div>
-
-
-<!--  -->

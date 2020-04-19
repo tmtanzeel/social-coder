@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ArticleService } from '../article.service';
 import { MessageService } from 'primeng/components/common/api';
 
@@ -13,6 +13,7 @@ export interface MyObject {
 })
 export class ArticleDetailComponent implements OnInit {
   articleId : String = '';
+  article;
   articleDetails : { title?: string, content?: string, contributor?: string, upvotes?: number, upvoters?: string[], downvotes?: number, downvoters?: string[] } = { content: '' };
 
   
@@ -40,7 +41,7 @@ export class ArticleDetailComponent implements OnInit {
     downvoters: []
   };
 
-  constructor(private messageService: MessageService, private router: Router, private _articleService: ArticleService) { }
+  constructor(private messageService: MessageService, private router: Router, private _articleService: ArticleService, private _router: ActivatedRoute) { }
 
   showUpvoteConfirmation() {
     this.messageService.add({severity:'success', summary:'Success Message', detail:'Your upvote is added'});
@@ -51,24 +52,32 @@ export class ArticleDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.articleId = this._articleService.getClickedArticle();
-    this._articleService.fetchArticle(this.articleId).subscribe(article=>{
-    this.articleDetails  = article;
-    this.currentUpvotes=this.articleDetails.upvotes;
-    this.currentDownvotes=this.articleDetails.downvotes;
-    document.querySelector('#data-container').innerHTML=this.articleDetails.content;
-    this.currentLoggedInUserId=localStorage.getItem('userid');
-    for(var i=0;i<5;i++) {
-      if(this.currentLoggedInUserId==this.articleDetails.upvoters[i]) {
-        this.allowUpvote=false;
+    const id=this._router.snapshot.paramMap.get('id');
+    this.getArticleById(id);
+  }
+
+  getArticleById(id: string) {
+    this._articleService.getArticleById(id).subscribe({
+      next: product => this.onAlbumRetrieved(product)
+    })
+  }
+
+  // to keep the code clean and extend some functionality
+  onAlbumRetrieved(article: any): void {
+      this.article = article;
+      this.currentUpvotes=this.article.upvotes;
+      this.currentDownvotes=this.article.downvotes;
+      document.querySelector('#data-container').innerHTML=this.article.content;
+      for(var i=0;i<5;i++) {
+        if(this.currentLoggedInUserId==this.article.upvoters[i]) {
+          this.allowUpvote=false;
+        }
       }
-    }
-    for(var i=0;i<5;i++) {
-      if(this.currentLoggedInUserId==this.articleDetails.downvoters[i]) {
-        this.allowDownvote=false;
+      for(var i=0;i<5;i++) {
+        if(this.currentLoggedInUserId==this.article.downvoters[i]) {
+          this.allowDownvote=false;
+        }
       }
-    }
-    });
   }
 
   back() {

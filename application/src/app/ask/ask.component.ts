@@ -50,8 +50,6 @@ export class AskComponent implements OnInit {
   }
 
   onSubmit() {
-    //console.log("clicked onSubmit");
-    
     var titleFromField = (<HTMLInputElement>document.getElementById("inputTitle")).value;
     var content = this.editorForm.get('editor').value;
     var askedby = localStorage.getItem('firstname') + " " + localStorage.getItem('lastname');
@@ -61,15 +59,9 @@ export class AskComponent implements OnInit {
     this.makeNewQuest.qcontent = content;
     this.makeNewQuest.date = date;
     this.makeNewQuest.askedby = askedby;
-
-    //console.log("Final object to be pushed");
-    //console.log(this.makeNewQuest);
-    
-    
     this._auth.pushNewQuest(this.makeNewQuest)
       .subscribe(
         res => {
-          //console.log(res);
           this._router.navigate(['/discussions']);
         },
         err => console.log(err)
