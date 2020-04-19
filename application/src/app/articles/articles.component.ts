@@ -12,6 +12,7 @@ export class ArticlesComponent implements OnInit {
 
   articles = [];
   filteredArticles=[];
+  p: number = 1;
 
   constructor(private _articleService: ArticleService, private router: Router) { }
 
