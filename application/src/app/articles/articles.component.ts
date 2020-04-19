@@ -44,13 +44,4 @@ export class ArticlesComponent implements OnInit {
       e.title.toLowerCase().indexOf(text.toLowerCase()) >= 0
     }));
   }
-
-  goToArticle(id) {
-    /*
-      THIS 'id' IS AN OBJECT. SO WE HAVE TO TAKE OUT articleID FROM THAT OBJECT.
-      'articleID' IS ALREADY DEFINED IN MONGODB JSON. THEREFORE WE ARE PASSING id.articleid TO
-      setClickedrticleObj METHOD BELOW */
-    this._articleService.setClickedArticleObj(id.articleid);
-    this.router.navigate(['/options']);
-  }
 }

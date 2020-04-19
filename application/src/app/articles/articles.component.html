@@ -15,7 +15,7 @@
         <div class="card text-center">
             <div class="card-body">
                 <h5 class="card-title">{{article.title}}</h5>
-                <a (click)="goToArticle(article)" class="btn btn-primary">Read More</a>
+                <a class="btn btn-primary" [routerLink]="['/articles',article.articleid]">Read More</a>
             </div>
             <div class="card-footer text-muted">
                 {{article.date}}
