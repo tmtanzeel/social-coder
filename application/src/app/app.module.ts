@@ -36,6 +36,8 @@ import { SponcersComponent } from './sponcers/sponcers.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { RouterModule, Routes } from '@angular/router';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 const appRoutes: Routes = [
   { path: '', component: HomeComponent }
 ];
@@ -74,6 +76,7 @@ const appRoutes: Routes = [
     NgxTagsInputModule,
     ToastModule,
     TooltipModule,
+    NgxPaginationModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [MessageService, AuthService, AuthGuard, ArticleService,

@@ -24,6 +24,7 @@
     "font-awesome": "^4.7.0",
     "ngx-bootstrap": "^5.3.2",
     "ngx-owl-carousel-o": "^2.0.3",
+    "ngx-pagination": "^5.0.0",
     "ngx-quill": "^7.3.12",
     "ngx-tags-input": "^2.0.1",
     "primeicons": "^2.0.0",

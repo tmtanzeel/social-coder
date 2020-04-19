@@ -33,3 +33,7 @@
 ::placeholder {
     color: salmon;
 }
+
+.pagination-controls {
+    margin-bottom: 20px;
+}
