@@ -41,7 +41,8 @@ export class MyArticlesComponent implements OnInit {
       [{ 'size': ['small', false, 'large', 'huge'] }],
       [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
       [{ 'color': [] }, { 'background': [] }],
-      [{ 'font': [] }]
+      [{ 'font': [] }],
+      ['link']
     ]
   }
 
