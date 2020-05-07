@@ -37,6 +37,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { RouterModule, Routes } from '@angular/router';
 
 import {NgxPaginationModule} from 'ngx-pagination';
+import { EllipsisPipe } from './pipes/ellipsis.pipe';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent }
@@ -60,7 +61,8 @@ const appRoutes: Routes = [
     AskComponent,
     MyArticlesComponent,
     ArticleDetailComponent,
-    SponcersComponent
+    SponcersComponent,
+    EllipsisPipe
   ],
   imports: [
     BrowserModule,
