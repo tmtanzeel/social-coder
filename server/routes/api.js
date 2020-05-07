@@ -95,12 +95,83 @@ router.put('/update-upvotes/:id', (req, res) => {
     })
 })
 
+router.put('/add-to-upvoters-list/:id/:id1', (req, res) => {
+    console.log("adding to upvoters list");
+    let upvoterId = req.params.id;
+    let articleId = req.params.id1;
+    let articleData = req.body;
+    console.log("looking for" + articleId);
+
+    Article.update({ articleid: articleId }, { $push: { upvoters: upvoterId } }).then(opResult => console.log(opResult));
+    Article.findOneAndUpdate({ articleid: articleId }, { upvotes: articleData.upvotes, downvotes: articleData.downvotes }, useFindAndModify = false, (error, user) => {
+        if (error) {
+            console.log(error)
+        } else {
+            console.log("successfully updated");
+            res.status(200).send(true);
+        }
+    })
+
+})
+
+router.delete('/remove-from-upvoters-list/:id/:id1', (req, res) => {
+    console.log("removing from upvoters list now");
+    let userId = req.params.id;
+    let articleId = req.params.id1;
+    let articleData = req.body;
+    console.log("preparing to remove user:" + userId);
+    Article.update({ articleid: articleId }, { $pull: { upvoters: userId } }).then(opResult => console.log(opResult));
+    Article.findOneAndUpdate({ articleid: articleId }, { upvotes: articleData.upvotes, downvotes: articleData.downvotes }, useFindAndModify = false, (error, user) => {
+        if (error) {
+            console.log(error)
+        } else {
+            console.log("successfully updated");
+            res.status(200).send(true);
+        }
+    })
+})
+
+router.put('/add-to-downvoters-list/:id/:id1', (req, res) => {
+    console.log("adding to upvoters list");
+    let upvoterId = req.params.id;
+    let articleId = req.params.id1;
+    let articleData = req.body;
+    console.log("looking for" + articleId);
+
+    Article.update({ articleid: articleId }, { $push: { downvoters: upvoterId } }).then(opResult => console.log(opResult));
+    Article.findOneAndUpdate({ articleid: articleId }, { upvotes: articleData.upvotes, downvotes: articleData.downvotes }, useFindAndModify = false, (error, user) => {
+        if (error) {
+            console.log(error)
+        } else {
+            console.log("successfully updated");
+            res.status(200).send(true);
+        }
+    })
+})
+
+router.delete('/remove-from-downvoters-list/:id/:id1', (req, res) => {
+    console.log("removing from upvoters list now");
+    let userId = req.params.id;
+    let articleId = req.params.id1;
+    let articleData = req.body;
+    console.log("looking for" + articleId);
+    Article.update({ articleid: articleId }, { $pull: { downvoters: userId } }).then(opResult => console.log(opResult));
+    Article.findOneAndUpdate({ articleid: articleId }, { upvotes: articleData.upvotes, downvotes: articleData.downvotes }, useFindAndModify = false, (error, user) => {
+        if (error) {
+            console.log(error)
+        } else {
+            console.log("successfully updated");
+            res.status(200).send(true);
+        }
+    })
+})
+
 router.put('/update-downvotes/:id', (req, res) => {
     let downvoterId = req.params.id;
     let articleData = req.body;
     let articleId = req.body.articleid;
     Article.update({ articleid: articleId }, { $pull: { upvoters: downvoterId } }).then(opResult => console.log(opResult));
-    Article.findOneAndUpdate({ articleid: '5p4aqbryi' }, { downvotes: articleData.downvotes, downvoters: articleData.downvoters }, useFindAndModify = false, (error, user) => {
+    Article.findOneAndUpdate({ articleid: "5p4aqbryi" }, { downvotes: articleData.downvotes, downvoters: articleData.downvoters }, useFindAndModify = false, (error, user) => {
         if (error) {
             console.log(error)
         } else {
@@ -113,8 +184,6 @@ router.put('/update-downvotes/:id', (req, res) => {
 
 router.get('/myarticles/:person', (req, res) => {
     let person = req.params.person;
-    console.log(person);
-    console.log('Get request for ' + person + ' articles');
     Article.find({ contributor: person }, (error, article) => {
         if (error) {
             console.log(error)
