@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
       firstname:['', [Validators.required,Validators.minLength(4), Validators.pattern('[A-Za-z]{4,15}')]],
       lastname:['', [Validators.required,Validators.minLength(4), Validators.pattern('[A-Za-z]{4,15}')]],
       username: ['', [Validators.required,Validators.minLength(4), Validators.pattern('[A-Za-z0-9@._!]{4,25}')]],
-      password: ['', [Validators.required, Validators.minLength(4)]],
+      password: ['', [Validators.required, Validators.minLength(4)], Validators.pattern('[A-Za-z0-9]{4,25}')],
       cnfpass: ['', [Validators.required, Validators.minLength(4), passValidator]]
     });
 
@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser() {
-    if (!this.form.valid) return;
+    //if (!this.form.valid) return;
     this.form.markAsTouched();
     this.registerUserData.firstName=this.form.value.firstname;    
     this.registerUserData.lastName=this.form.value.lastname;    
