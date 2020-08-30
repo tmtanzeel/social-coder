@@ -217,15 +217,15 @@ router.delete('/delete/:id', (req, res) => {
 
 
 router.post('/register', (req, res) => {
-    let userData = req.body;
-    let user = new User(userData);
-    user.save((error, registeredUser) => {
+    let user = req.body;
+    let userData = new User(user);
+    userData.save((error, registeredUser) => {
         if (error) {
             console.log(error);
         } else {
             let payLoad = { subject: registeredUser._id };
             let token = jwt.sign(payLoad, 'secretKey');
-            res.status(200).send({ token });
+            res.status(200).send({ token, user });
         }
     })
 })

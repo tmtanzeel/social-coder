@@ -3,6 +3,7 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { passValidator } from './validator';
+import { LoginService } from '../core/authentication/login.service';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +22,12 @@ export class RegisterComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private _auth: AuthService, private _router: Router) { 
+  constructor(
+    private fb: FormBuilder, 
+    private _auth: AuthService, 
+    private _router: Router,
+    private loginService: LoginService
+    ) { 
     this.form  = this.fb.group({
       firstname:['', [Validators.required,Validators.minLength(4), Validators.pattern('[A-Za-z]{4,15}')]],
       lastname:['', [Validators.required,Validators.minLength(4), Validators.pattern('[A-Za-z]{4,15}')]],
@@ -52,8 +58,9 @@ export class RegisterComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res);
-        localStorage.setItem('token', res.token);
-        this._router.navigate(['/articles']);
+        // localStorage.setItem('token', res.token);
+        this.loginService.processLogin(res).subscribe();
+        // this._router.navigate(['/articles']);
       },
       err => console.log(err)
     )

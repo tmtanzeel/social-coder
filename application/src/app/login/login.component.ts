@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { LoginService } from '../core/authentication/login.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,11 @@ export class LoginComponent implements OnInit {
     password: ""
   };
 
-  constructor( private _auth: AuthService, private _router: Router) {
+  constructor( 
+    private _auth: AuthService, 
+    private _router: Router,
+    private loginService: LoginService
+  ) {
   }
 
   ngOnInit() {
@@ -33,11 +38,12 @@ export class LoginComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res);
-        localStorage.setItem('token', res.token);
-        localStorage.setItem('firstname', res.user.firstName);
-        localStorage.setItem('lastname', res.user.lastName);
-        localStorage.setItem('userid', res.user.userid);
-        this._router.navigate(['/articles']);
+        // localStorage.setItem('token', res.token);
+        // localStorage.setItem('firstname', res.user.firstName);
+        // localStorage.setItem('lastname', res.user.lastName);
+        // localStorage.setItem('userid', res.user.userid);
+        // this._router.navigate(['/articles']);
+        this.loginService.processLogin(res).subscribe();
       },
       err => {
         this.flag.valid=false,

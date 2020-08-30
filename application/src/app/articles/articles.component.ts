@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../article.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { Profile } from '../core/adaptors/profile.model';
+import { UserProfileService } from '../core/authentication/user-profile.service';
 
 
 @Component({
@@ -14,7 +17,20 @@ export class ArticlesComponent implements OnInit {
   filteredArticles=[];
   p: number = 1;
 
-  constructor(private _articleService: ArticleService, private router: Router) { }
+  public userProfile$: Subscription;
+  public userProfile: Profile;
+
+  constructor(
+    private _articleService: ArticleService, 
+    private router: Router,
+    private profileservice: UserProfileService, 
+  ) { 
+    this.userProfile$ = this.profileservice.userProfile$.subscribe(
+      userProfile$ => {
+        this.userProfile = userProfile$
+      }
+    );
+  }
 
   articledId : String = '';
   text='';

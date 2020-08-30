@@ -24,6 +24,11 @@
             </li>
         </ul>
         <ul class="navbar-nav">
+            <li class="nav-item current-user-item">
+                <div *ngIf="_authService.loggedIn()">
+                    <i class="fa fa-circle" style="color:green;"></i>&nbsp;&nbsp;<span class="current-user">{{ userProfile.firstName }} {{ userProfile.lastName }}</span>
+                </div>
+            </li>
             <li class="nav-item login">
                 <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" *ngIf="!_authService.loggedIn()" routerLink="/login">Login</button>
             </li>

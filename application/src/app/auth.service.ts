@@ -9,7 +9,7 @@ export class AuthService {
 
   constructor(private _http: HttpClient, private _router: Router) { }
   private _registerUrl = "http://localhost:3000/api/register";
-  private _loginUrl = "http://localhost:3000/api/login";
+  public _loginUrl = "http://localhost:3000/api/login";
   private _contributeUrl = "http://localhost:3000/api/contribute";
   private _askUrl = "http://localhost:3000/api/ask";
   private _deleteArtURL = "http://localhost:3000/api/delete-article";
@@ -54,6 +54,7 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('firstname');
     localStorage.removeItem('lastname');
+    localStorage.removeItem('userProfile');
     this._router.navigate(['/articles']);
   }
 }

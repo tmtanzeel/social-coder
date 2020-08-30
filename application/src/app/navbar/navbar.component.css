@@ -23,3 +23,12 @@
 .login:hover {
     color: salmon;
 }
+
+.current-user {
+    color: white;
+}
+
+.current-user-item {
+    margin-top: 6px;
+    margin-right: 30px;
+}
