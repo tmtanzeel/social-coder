@@ -14,9 +14,6 @@ app.use('/api', api);
 app.get('/', function(req, res) {
   res.send('Hello from the server');
 })
-app.get('/', function(req, res) {
-  res.send('Hello from the server');
-})
 app.listen(PORT, function() {
   console.log('Server listening on PORT '+PORT)
 });
